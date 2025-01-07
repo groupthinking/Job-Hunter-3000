@@ -76,11 +76,23 @@ def sign_in(driver, user):
     return search_bar
 
 
-def get_open_positions(driver):
+def get_all_open_positions(driver):
+    """
+    Gets all hiring companies and associated info (All pages)
+    """
+
+    # get_open_positions_single_page(driver)
+
+    pages = driver.find_elements(By.XPATH, "//li[@data-test-pagination-page-btn]")
+    
+    print(pages)
+
+
+def get_open_positions_single_page(driver):
     """
     Gets all hiring companies and associated info on a single page.
     """
-    max_positions = 30
+    max_positions = 25
     max_attempts = 3
     old_content = None
 
@@ -91,7 +103,7 @@ def get_open_positions(driver):
             try:
                 # Fetch all clickable job cards
                 hiring_companies = WebDriverWait(driver, 5).until(
-                    EC.presence_of_all_elements_located((By.CLASS_NAME, 'job-card-container--clickable'))
+                    EC.presence_of_all_elements_located((By.CLASS_NAME, 'jobs-search-results__list-item'))
                 )
 
                 # Click on the ith job card
@@ -217,6 +229,8 @@ def print_position_details(position):
     
     # Print the detailed string
     print(details)
+
+
 
 
 
