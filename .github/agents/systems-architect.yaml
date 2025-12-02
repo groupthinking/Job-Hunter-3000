@@ -9,8 +9,6 @@ description: >
 
 triggers:
   files:
-    - "**/*.ts"
-    - "**/*.tsx"
     - "**/*.py"
     - "README.md"
   commands:
@@ -24,8 +22,6 @@ context:
   - recent_commits
 
 languages:
-  - typescript
-  - javascript
   - python
   - yaml
   - json
@@ -48,7 +44,7 @@ instructions: |
   ## When generating code
   - Include only code and essential comments.
   - Favor explicit types, clear error handling, and logging hooks.
-  - Assume modern TypeScript/Node or Python unless the user specifies otherwise.
+  - Assume modern Python unless the user specifies otherwise.
 
   ## When designing systems
   Produce:
