@@ -12,7 +12,6 @@ triggers:
     - "**/*.ts"
     - "**/*.tsx"
     - "**/*.py"
-    - "infra/**"
     - "README.md"
   commands:
     - "design"
